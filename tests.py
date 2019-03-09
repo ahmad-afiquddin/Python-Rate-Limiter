@@ -66,15 +66,12 @@ print("User infos:")
 print(test_server.get_user(user1))
 print(test_server.get_user(user2))
 
-
 print("\nTest case #3: Making last allowable request within set period")
 #Expected: Success on all requests
 print("Making a request on user001")
 print(test_server.req_made(user1))
 print("Making a request on user002")
 print(test_server.req_made(user2))
-time.sleep(req_time/500)
-
 
 print("\nTest case #4: Making a request after limit has been reached")
 #Expected: Error 429 on all requests
@@ -82,7 +79,6 @@ print("Making a request on user001")
 print(test_server.req_made(user1))
 print("Making a request on user002")
 print(test_server.req_made(user2))
-time.sleep(req_time/500)
 
 time.sleep(req_time)
 print("\nTest case #5: Making a request after time limit has passed")
