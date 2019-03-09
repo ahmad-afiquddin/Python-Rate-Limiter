@@ -47,8 +47,6 @@ print("Making a request on user002")
 print(test_server.req_made(user2))
 time.sleep(req_time/100)
 
-time_limit = 3600 - test_server.user_dict.get("user001").req_list[0].time_diff()
-print(time_limit)
 
 print("\nTest case #2: Adding {} requests to both users".format(req_tokens - 2))
 #Making another token limit - 2 requests
