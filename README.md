@@ -32,7 +32,7 @@ After initializing 2 users with api keys user001 and user002, 6 test cases are r
 - 2: Making 98 requests on both users. Expceting success for all requests.
 - 3: Making the 100th request in the same hour. Expecting success.
 - 4: Making a request after limit is reached. Expecting Error 429
-- 5: Wait for an hour then make a new request. Expecting success since first tokens in both user buckets can be popped.
+- 5: Wait for time limit then make a new request. Expecting success since first tokens in both user buckets can be popped.
 - 6: Making another request. Expecting Error 429 since first request tokens in both buckets have not expired.
 
 Tests shows that there are no overlaps between users, and rate limiter is successful
