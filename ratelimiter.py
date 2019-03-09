@@ -66,13 +66,13 @@ class User():
 			    return str(self.req_list[-1])
 		    else:
                 #Return error429
-			    return str(Error429(self.req_list[0].time_diff()))
+			    return str(Error429(req_time - self.req_list[0].time_diff()))
 
     #Return info for user
     def __str__(self):
         first_token = self.req_list[0].time_diff()
         last_token = self.req_list[-1].time_diff()
-        return ("{} Earliest request in list was made {} seconds ago, most recent request was made {} seconds ago. A total of {} requests were made".format(self.api_key, first_token, last_token, len(self.req_list)))
+        return ("{} Earliest request in bucket was made {} seconds ago, most recent request was made {} seconds ago. A total of {} requests were made".format(self.api_key, first_token, last_token, len(self.req_list)))
 
 #Class for server
 class Server:
