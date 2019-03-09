@@ -91,7 +91,6 @@ print("Making a request on user001")
 print(test_server.req_made(user1))
 print("Making a request on user002")
 print(test_server.req_made(user2))
-time.sleep(req_time/1000)
 
 print("\nTest case #6: Making another request")
 #Expected: Error 429 on all requests
