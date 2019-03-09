@@ -45,7 +45,10 @@ print("Making a request on user001")
 print(test_server.req_made(user1))
 print("Making a request on user002")
 print(test_server.req_made(user2))
-time.sleep(req_time/500)
+time.sleep(req_time/100)
+
+time_limit = 3600 - test_server.user_dict.get("user001").req_list[0].time_diff()
+print(time_limit)
 
 print("\nTest case #2: Adding {} requests to both users".format(req_tokens - 2))
 #Making another token limit - 2 requests
@@ -80,8 +83,10 @@ print(test_server.req_made(user1))
 print("Making a request on user002")
 print(test_server.req_made(user2))
 
-time.sleep(req_time)
-print("\nTest case #5: Making a request after time limit has passed")
+time_limit = 3600 - test_server.user_dict.get("user001").req_list[0].time_diff() + 1
+print("\nWaiting for {} seconds".format(time_limit))
+time.sleep(time_limit)
+print("\nTest case #5: Making a request after {} seconds has passed".format(time_limit))
 #Expected: Success on all requests
 print("Making a request on user001")
 print(test_server.req_made(user1))
