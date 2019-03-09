@@ -47,7 +47,6 @@ print("Making a request on user002")
 print(test_server.req_made(user2))
 time.sleep(req_time/100)
 
-
 print("\nTest case #2: Adding {} requests to both users".format(req_tokens - 2))
 #Making another token limit - 2 requests
 #Expected: Success on all requests
