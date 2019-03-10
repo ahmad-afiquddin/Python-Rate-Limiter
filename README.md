@@ -1,10 +1,7 @@
 # Python-Rate-Limiter
 
 The rate limiter I have coded is an example of a leaky bucket implementation where at any given time, it would only allow 100 requests
-on the server. After an hour has passed since the first request in the bucket has been made, if another request is made, the first request
-will be popped from the bucket, and the newest request will be added to the end of the bucket. This ensures that there will be only 100
-requests for any given hour. If another request is made, it will again check if the first request in the bucket has reached the one hour 
-limit, and if yes, the first request is popped, and if no, the new request is rejected, and error 429 returned.
+on the server. Each request will be alive in the bucket for an hour starting from when it was made. Every new request will be added to the top of the bucket until full. When the bucket is full, if a new request comes in, the first request in the bucket is checked. If an hour has passed, the first request is "leaked" and the new request is added to the top of the bucket. If the request is still alive, meaning an hour has not passed, the new request will overflow, thus resulting in an error 429. 
 
 The implementation is memory intensive, as it will keep requests in the bucket, and pop them if necessary, but it is less processor intensive
 as there are no periodic checks made to the bucket, as checks are only made once a new request is sent.
